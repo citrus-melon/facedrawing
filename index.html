@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A simple demo of deep learning/neural networks that differentiates between smiley faces and frowny faces! This is my final product for my science research project on AI and deep.">
+    <title>Face Drawing Classification</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Face Drawing Classification</h1>
+    <p class="author">Maxwell Yu</p>
+    <p>For my science research project, I choose to learn more about deep learning and neural networks. As my final product, I've created this interactive demo which can tell the difference between smiley and frowny faces! Thank you to everyone who drew faces to help train the algorithm!</p>
+    <p>Just draw a face in the space below, and click the button to try it out!</p>
+
+    <div class="page visible" id="inputPage">
+      <canvas id="canvas" width="300" height="300"></canvas>
+      <div id="controls">
+        <button onclick="predict()">guess!</button>
+        <button onclick="saveImage('face')">save image</button>
+        <button onclick="clearImage()">discard image</button>
+      </div>
+    </div>
+    <div class="page" id="resultPage">
+      <p>You drew a...</p>
+      <div id="result">???</div>
+      <p id="confidence">__% confindent</p>
+      <button onclick="tryAgain()">try again</button>
+    </div>
+
+    <h2>How does this work?</h2>
+    <p>When you click &quot;guess&quot;, the data is fed into
+        what is called a convolutional neural network.</p>
+    <h3>Neural Networks</h3>
+    <p>A neural network is a special type of algorithm which
+        mimics the structure of the human brain. They are used for deep learning, a type of machine learning.
+        Machine learning simply refers to algorithms that &quot;learn&quot; as they are exposed to more data,
+        and is a form of AI. Machine learning is used in many fields for many purposes, for example, to detect
+        COVID-19 from a recording of a cough!</p>
+    <p>Neural networks are made up of many artificial
+        neurons, each of which have inputs and an output. These inputs are &quot;weighted&quot;, which means
+        that they are multiplied with number. This controls how much each input affects the neuron. By tweaking
+        these weights, the network can &quot;learn&quot;. This is much like how pathways in our brain become
+        more sensitive the more they are used. At the center of a neuron is the summation function, which
+        combines the inputs using complicated math to create the output.
+        The output may also go through an activation function, a sort of threshold.</p>
+    <a href="https://facedrawing.citrusmelon.repl.co/images/neuron_diagram.png">
+        <img style="width:528px" src="https://facedrawing.citrusmelon.repl.co/images/neuron_diagram.png" /></a>
+    <p>These neurons are organized in &quot;layers&quot;.
+        Each layer consists of some number of neurons, whose outputs are the inputs of the next layer. There are
+        different types of layers which are suitable for different purposes. These layers are then arranged to
+        form an neural network/model.</p>
+    <a href="https://facedrawing.citrusmelon.repl.co/images/layers_diagram.png">
+        <img src="https://facedrawing.citrusmelon.repl.co/images/layers_diagram.png"/></a>
+    <h3>Convolutional Neural Networks</h3>
+    <p>For my project, I created/trained a convolutional
+        neural network. Convolutional neural networks (CNNs) are a specific type of neural network that uses
+        convolution layers. These layers excel at image processing, and are used for reducing the data to a
+        simpler form while recognizing and extracting key features. Essentially, a &quot;kernel&quot; scans
+        through the image, and uses a summation formula to combine adjacent pixels. Each group of pixels it
+        combines becomes one pixel in the output. It does this in 2D space, as opposed to as a 1D list.</p>
+    <p>In between the convolutional layers, there are
+        &quot;pooling layers&quot;, which also simplify the data but in a more direct way. At the end of the
+        model, there are also usually a few normal layers to convert the data into a good output form.</p>
+    <a href="https://facedrawing.citrusmelon.repl.co/images/convolution_diagram.png">
+        <img src="https://facedrawing.citrusmelon.repl.co/images/convolution_diagram.png"/></a>
+    <h3>Training and creating the model</h3>
+    <p>To create my neural network, I started by collecting
+        data. Thank you to everyone who volunteered to draw faces! From what I&#x27;ve learned, it usually takes
+        a lot of data (tens of thousands!) to train a neural network. However, I was only able to collect 140
+        images in total. As such, I was very surprised at how well it turned out!</p>
+    <p>You can see the rest in the <a href="https://colab.research.google.com/drive/1q4F7xwknjquvtBRhDNqG1lvsb5kZx3pK?usp=sharing">
+        Google Colab notebook</a> I used to create, train, and export the model.</p>
+    <h2>Works Cited</h2>
+    <p>Castrounis, Alex. &quot;AI, Deep Learning, and Neural
+        Networks Explained.&quot; <em>Innoarchitech</em>,
+        www.innoarchitech.com/blog/artificial-intelligence-deep-learning-neural-networks-explained.</p>
+    <p>&quot;Convolutional Neural Network (CNN).&quot;
+        <em>TensorFlow</em>, Googlet, 5 may 2021, www.tensorflow.org/tutorials/images/cnn. Accessed 7 June 2021.
+    </p>
+    <p>Saha, Sumit. &quot;A Comprehensive Guide to
+        Convolutional Neural Networks — the ELI5 Way.&quot; <em>Towards Data Science</em>, 15 Dec. 2018,
+        towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53.
+        Accessed 6 June 2021.</p>
+    <p>Saplakoglu, Yasemin. &quot;AI Can Detect COVID-19 from
+        the Sound of Your Cough.&quot; <em>Newesla</em>, 17 Dec. 2020,
+        newsela.com/read/ai-detect-covid19-cough/id/2001015957/. Accessed 3 June 2021.</p>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="canvas.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

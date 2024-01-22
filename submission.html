@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This is for my science project, I'm making an AI that recognizes smiley/frowny faces and I need images to train it. I would appreciate it if you could help draw 5 of each type, or more!">
+    <title>Face Drawing</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Maxwell's face drawing tool</h1>
+    <p>This is for my science project, I'm making an AI that recognizes smiley/frowny faces and I need images to train it. I would appreciate it if you could help draw 5 of each type, or more!</p>
+    <p>Draw a smiley or frowny in the space below! Please keep it simple, nothing fancy. Please submit the same amount of each kind. When you are done, upload the downloaded images to this <a href="https://drive.google.com/drive/folders/1k4d9GwSqGYSgkK2Qv1moUm89mcKVkGjS?usp=sharing">Google Drive folder</a></p>
+    <div class="page visible">
+      <canvas id="canvas" width="300" height="300"></canvas>
+      <div id="controls">
+        <button onclick="saveImage('smiley')">sav e smiley</button>
+        <button onclick="saveImage('frowny')">sav e frowny</button>
+        <button onclick="clearImage()">discard image</button>
+      </div>
+    </div>
+    <script src="canvas.js"></script>
+  </body>
+</html>
