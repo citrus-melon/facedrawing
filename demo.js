@@ -20,7 +20,7 @@ class Rescaling extends tf.layers.Layer {
 tf.serialization.registerClass(Rescaling);
 
 (async function() {
-  model = await tf.loadLayersModel('/exported_model/model.json');
+  model = await tf.loadLayersModel('exported_model/model.json');
 })();
 
 const confidenceText = document.getElementById('confidence');
